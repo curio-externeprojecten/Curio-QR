@@ -63,14 +63,12 @@ require __DIR__.'./../init.php';
 
  } 
  // else if ($_POST['formType'] == 'login') {
- // 	$email = $_POST ['email'];
+ // 	$username = $_POST ['username'];
  // 	$password = $_POST['password'];
- // 	$sql = "SELECT * FROM players WHERE email = :email";
- // 	$query = $db->prepare($sql);
- // 	$query->execute([
- // 		'email' => $email
- // 	]);
 
+ // 	query("SELECT * FROM players WHERE email = :email", [
+ // 		'email' => $email
+ // 	])
  // 	# checken of de gebruiker in de database zit
  // 	$userExits = $query->rowCount();
  // 	echo $userExits;
