@@ -2,7 +2,7 @@
 
 function getDB() {
     $dbHost = 'localhost';
-    $dbName = 'carrental';
+    $dbName = 'qr';
     $dbUser = 'root';
     $dbPass = '';
 
