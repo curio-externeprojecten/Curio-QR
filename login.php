@@ -6,7 +6,7 @@ require("header.php");
                 <h1>Login</h1>
                 <form action="backend/controllers/users.php" method="post">
                     <input type="hidden" name="formType" value="login">
-                    <input class="username" type="text" name="username" placeholder="username" id="username" required>
+                    <input class="email" type="email" name="email" placeholder="email" id="email" required>
                     <input class="password" type="password" name="password" placeholder="Password" id="password" required>
                     <input type="submit" value="Login">
                 </form>

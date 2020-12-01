@@ -25,13 +25,13 @@ require __DIR__.'./../init.php';
 // 	redirect('../../public/index.php');
 // }
 
- if($_SERVER['REQUEST_METHOD'] != 'POST'){
+if($_SERVER['REQUEST_METHOD'] != 'POST'){
     $msg = "Je kunt deze pagina alleen bereiken via een veilige form-invoer.";
     header("location: ../index.php?msg=$msg");
     exit;
 }
 
- if ( $_POST['formType'] == 'register') {
+else if ( $_POST['formType'] == 'register') {
  	$email = $_POST ['email'];
  	$password = $_POST['password'];
  	$username = $_POST['username'];
@@ -62,42 +62,50 @@ require __DIR__.'./../init.php';
 
 
  } 
- // else if ($_POST['formType'] == 'login') {
- // 	$username = $_POST ['username'];
- // 	$password = $_POST['password'];
 
- // 	query("SELECT * FROM players WHERE email = :email", [
- // 		'email' => $email
- // 	])
- // 	# checken of de gebruiker in de database zit
- // 	$userExits = $query->rowCount();
- // 	echo $userExits;
- // 	if ($userExits) {
- // 		$user = $query->fetch();
- // 		$verified = password_verify( $password, $user['password']);
+else if ($_POST['formType'] == 'login') {
+    // 1. plaats $_POST waarden in een mooie variabele
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    // 2. Valideren van ingekomen gegevens (optimalisatie)
 
 
- // 		if (!$verified) {
- // 			exit('Gebruikersnaam / wachtwoord onjuist');
- // 		}
+    // 3. check of account met combinatie password en email bestaat
+        // a. probeer de user te selecteren met dit wachtwoord en email combinatie
+        $user = selectOne("SELECT * FROM users WHERE email = :email AND password = :password",
+            [
+                ':email'    => $email,
+                ':password' => $password
+            ]
+        );
 
- // 		$_SESSION['id'] = $user['id'];
- // 		$_SESSION['email'] = $users['email'];
- 		
- // 		# CHecken of de persoon een admin is
- // 		if ($user['admin'] == 1) {
- // 			header("location: ../admin/adminWebsite.php");
- // 			exit();
- // 		}
+        if ($user == false) {
+            echo "email of wachtwoord niet goed";
+            exit;
+        }
+
+        // welke conclusie kunnen we nu trekken?
+            // ingevoerde gebruikersnaam en wachtwoord zijn bij ons bekend in systeem
+        
+        // b. De sessie vullen met gegevens
+        $_SESSION['username'] = $user['name'];
+        $_SESSION['loggedIn'] = true;
+
+        // c. de gebruiker redirecten naar secret.php
+        redirect('../../register.php');
+       
+    // het login script verder maken.
+} 
+else if ($_POST['formType'] == 'logout') {
+    // als iemand wilt uitloggen
+    session_destroy();
+    unset($_SESSION);
+    redirect('../../public/auth/login.php');
+}
 
 
- // 		 header('location: ../dashboard.php');;
- // 		 exit();
- // 	}
 
 
 
-      
-
- // }
-
+?>
