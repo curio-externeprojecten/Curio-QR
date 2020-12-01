@@ -4,17 +4,30 @@
 }
 
 /*instruction page*/
+.container{
+    display:flex;
+    border:1px black solid;
+    padding:10px;
+    background:gray;
+}
 /*instructions*/
 .instructions{/*temp*/
     background:blue;
     width:60%;
-    height:1000px;
-    padding:5%;
+    min-height:800px;
+    padding:3%;
 }
 .instruction{/*temp*/
     background:grey;
     border: 2px solid black;
     padding:10px;
+    min-height: 100px;
+}
+.instruction image{
+    width:100%;
+}
+.instruction video{
+    width:100%;
 }
 .addInstruction{
     margin:auto;
@@ -47,4 +60,17 @@
 }
 .infoDetails{
     padding:25px
+}
+.controls{
+    background:green;
+    padding:20px;
+}
+.controls .remove{
+    margin:auto;
+    width:100px
+}
+
+.controls .remove button{
+    width:100px;
+    height:50px;
 }

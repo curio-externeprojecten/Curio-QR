@@ -91,6 +91,7 @@ else if ($_POST['formType'] == 'login') {
         // b. De sessie vullen met gegevens
         $_SESSION['username'] = $user['name'];
         $_SESSION['loggedIn'] = true;
+        $_SESSION['userId'] = encryptUser($user['id']);
 
         // c. de gebruiker redirecten naar secret.php
         redirect('../../register.php');

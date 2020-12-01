@@ -1,22 +1,33 @@
 <?php
-
-//isloggedin check
-
 //require'header';
 require'backend/init.php';
 
+$id = decrypt($_GET['id']);
+
+//logged in
+if(isset($_SESSION['userId'])){
+    $user = selectOne(
+        //username
+        //rank user/admin/superadmin
+        "SELECT username, rank FROM users WHERE id = :id",
+        [":id" => $_SESSION['userId']]
+    );
+}
 
 $instruction = selectOne(
     "SELECT creator, title, description, username FROM instructions
     LEFT JOIN users on instructions.creator = users.id
     WHERE instructions.id = :id",
-     [":id" => $_GET['id']]);
-    
+     [":id" => $id]);
+
+if(!$instruction){
+    header("Location: index.php"); 
+}
 $instructions = select(
     "SELECT type, content FROM instructions_data
     WHERE instruction_id = :id
     ORDER BY instruction_order", 
-    [":id" => $_GET['id']]);
+    [":id" => $id]);
 
 $title = $instruction['title'];
 ?>
@@ -44,7 +55,7 @@ $title = $instruction['title'];
     </nav>
 </div>
 
-<div class='container' style='display:flex;border:1px black solid;padding:10px;background:gray;'>
+<div class='container'>
 
     <div class="instructions">
         <div>
@@ -53,9 +64,23 @@ $title = $instruction['title'];
             foreach($instructions as $data){
                 if($data['type'] == "text"):
                 ?>    
-                <div class='instruction'>
-                    <p><?=$data['content'];?></p>
-                </div>
+                    <div class='instruction'>
+                        <p><?=$data['content'];?></p>
+                    </div>
+                <?php
+                endif;
+                if($data['type'] == "image"):
+                ?>
+                    <div class="instruction">
+                        <img src="<?=$data['content'];?>">
+                    </div>
+                <?php
+                endif;
+                if($data['type'] == "video"):
+                ?>
+                    <div class="instruction">
+                        <video src="<?=$data['content'];?>" controls></video>
+                    </div>
                 <?php
                 endif;
             }
@@ -84,12 +109,12 @@ $title = $instruction['title'];
             </div>
         </div>
 
-        <div class="controls" style='background:green;padding:20px;'>
+        <div class="controls">
             <!--if high rank see controlls-->
             <!--remove whole instruction-->
-            <div class="remove" style='margin:auto;width:100px'>
-                <button style='width:100px;height:50px;'>remove project</button>
-                <button style='width:100px;height:50px;'>get qr</button>
+            <div class="remove">
+                <button>remove project</button>
+                <button>get qr</button>
             </div>
         </div>
 
