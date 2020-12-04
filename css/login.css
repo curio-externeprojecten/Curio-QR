@@ -4,7 +4,17 @@
 	margin: 0;
 }
 
-main{
+.login{
 	background: #03357c;
+}
+
+.banner{
+	display: flex;
+	background: url("../backend/img/curio-prinsentuin-oudenbosch-klas.jpg");
 	height: 400px;
+ 	background-size: cover;
+}
+.bannertext{
+	align-items: center;
+	justify-content: center;
 }

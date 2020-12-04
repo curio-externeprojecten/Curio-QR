@@ -12,7 +12,12 @@
             require("header.php");
         ?> 
     </header>
-    <main class="loginmain">
+    <main>
+        <div class="banner">
+            <div class="bannertext">
+                <h1>Login pagina</h1>
+            </div>
+        </div>
         <div class="login">
          <h1>Login</h1>
              <form action="backend/controllers/users.php" method="post">
