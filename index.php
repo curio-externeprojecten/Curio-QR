@@ -5,6 +5,9 @@
 
   <link rel="stylesheet" href="css/index.css">
   <meta name="theme-color" content="#fafafa">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -46,7 +49,7 @@
 
   </main>
   <footer class="center">
-    <img src="img/curio.png" alt="curio-logo" width="100" height="40">
+    <img src="img/curio-wit.png" alt="curio-logo" width="100" height="40">
     <h4>Gemaakt door Curio Breda</h4>
     
 
