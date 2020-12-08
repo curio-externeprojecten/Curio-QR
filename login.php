@@ -14,8 +14,10 @@
     </header>
     <main>
         <div class="banner">
-            <div class="bannertext">
-                <h1>Login pagina</h1>
+            <div class="container">
+                <div class="bannertext">
+                    <h1>Login pagina</h1>
+                </div>
             </div>
         </div>
         <div class="login">

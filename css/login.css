@@ -1,20 +1,33 @@
-
 *{
 	padding: 0;
 	margin: 0;
 }
 
-.login{
-	background: #03357c;
+.container{
+	width: 1200px;
+    margin: 0 auto;
 }
 
+/*Bannner*/
+
 .banner{
-	display: flex;
-	background: url("../backend/img/curio-prinsentuin-oudenbosch-klas.jpg");
+	display: grid;
+	/*justify-content: center;*/
+	/*align-content: center;*/
+	/*background: url("../backend/img/curio-prinsentuin-oudenbosch-klas.jpg");*/
+	background-color: #03357c;
 	height: 400px;
- 	background-size: cover;
 }
-.bannertext{
-	align-items: center;
-	justify-content: center;
+.bannertext h1{
+	font-family: 'Cairo', sans-serif;
+	color: #f8aecd;
+	font-weight: bolder;
+	font-size: 4em;
+	padding-top: 5%;
+}
+
+/*Login*/
+
+.login{
+	background: #f8aecd;;
 }
