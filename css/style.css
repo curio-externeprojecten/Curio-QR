@@ -50,6 +50,21 @@ header .logo img
 {
     width: 40%;
 }
+
+footer{
+    height: 6em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #03357c;
+    color:#f8aecd;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+  }
+    footer img{
+      margin: 10px;
+    }
 /*instruction page
 .container{
     display:flex;
