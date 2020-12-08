@@ -61,11 +61,11 @@ footer{
     color:#f8aecd;
     text-align: center;
     font-family: 'Cairo', sans-serif;
-  }
-    footer img{
-      margin: 10px;
-    }
-/*instruction page
+}
+footer img{
+    margin: 10px;
+}
+/*instruction page*/
 .container{
     display:flex;
     border:1px black solid;
@@ -128,11 +128,28 @@ footer{
     padding:20px;
 }
 .controls .remove{
-    margin:auto;
-    width:100px
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    column-gap: 1px;
 }
-
-.controls .remove button{
+#qrBlock{
+    flex-direction: column;
+    padding-top:10px;
+}
+.controls button{
     width:100px;
     height:50px;
+}
+.controls input{
+    display: none;
+    color: red;
+    width:100px;
+    height:50px;
+}
+.controls img{
+    padding: 10px;
+    border: 2px black solid;
+    background: grey;
 }

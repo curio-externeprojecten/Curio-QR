@@ -15,7 +15,7 @@ if(isset($_SESSION['userId'])){
 }
 
 $instruction = selectOne(
-    "SELECT creator, title, description, username FROM instructions
+    "SELECT creator, title, description, username, code FROM instructions
     LEFT JOIN users on instructions.creator = users.id
     WHERE instructions.id = :id",
      [":id" => $id]);
@@ -56,10 +56,26 @@ $title = $instruction['title'];
 </div>
 
 <div class='container'>
+    <script>
+        function openqr(){
+            document.getElementById("qrBlock").style.display = "flex";
+        }
+        function downloadQR(){
+            var link = document.createElement('a');
+            link.href = "data:image/png;base64, " + "<?=$instruction['code']?>";
+            link.download = "QRcode.png"
+
+            link.click();
+            link.remove();
+        }
+        function confirm(){
+            document.getElementById("removeInstruct").style.display = "block";
+        }
+
+    </script>
 
     <div class="instructions">
         <div>
-            <!--instruction go here in div-->
             <?php
             foreach($instructions as $data){
                 if($data['type'] == "text"):
@@ -113,13 +129,21 @@ $title = $instruction['title'];
             <!--if high rank see controlls-->
             <!--remove whole instruction-->
             <div class="remove">
-                <button>remove project</button>
-                <button>get qr</button>
+                <button onclick="confirm()">Verwijder Instructies</button>
+                <form action="backend/controllers/informationController.php" method="POST">
+                    <input type="hidden" name="formType" value="Delete">
+                    <input type="hidden" name="id" value="<?=$_GET['id']?>">
+                    <input id="removeInstruct" type="submit" value="VERWIJDER">
+                </form>
+                <button onclick="openqr()">genereer QRcode</button>
+            </div>
+            
+            <div class="remove" id="qrBlock" style="display: none;">
+                <img src="data:image/png;base64, <?=$instruction['code']?>" id="QRimage" alt="">
+                <button id=download onclick="downloadQR()">Download</button>
             </div>
         </div>
-
     </div>
 </div>
-
 </body>
 </html>
