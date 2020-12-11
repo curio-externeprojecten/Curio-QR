@@ -53,7 +53,7 @@ header .logo img
 
 footer{
     height: 6em;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     width: 100%;
     justify-content: space-between;

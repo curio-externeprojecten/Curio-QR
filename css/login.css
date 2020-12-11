@@ -36,6 +36,7 @@
 
 /*main*/
 
+
 a {
   text-decoration: none;
 }
@@ -51,6 +52,7 @@ label {
   height: 410px;
   margin: 0 auto;
   width: 329px;
+  padding: 15px;
 }
 #card-content {
   padding: 12px 44px;
