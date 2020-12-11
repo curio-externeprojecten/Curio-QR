@@ -55,7 +55,7 @@ $title = $instruction['title'];
     </nav>
 </div>
 
-<div class='container'>
+<div class='instructionContainer'>
     <script>
         function openqr(){
             document.getElementById("qrBlock").style.display = "flex";
