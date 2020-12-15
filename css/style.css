@@ -9,8 +9,8 @@ font-family: 'Quicksand', sans-serif;*/
 }
 header
 {
-    padding: 1% 0% 1% 0%;
-    background: #00ff22;
+    padding: 3% 0% 3% 0%;
+    background: #03357c;
 }
 header .container
 {
@@ -31,9 +31,10 @@ header .links
 }
 header .links a
 {
+    padding: 15px 0px 15px 0px;
     font-family: 'Cairo', sans-serif;
     text-decoration: none;
-    color: #000000;
+    color: #f8aecd;
     font-size: 2rem;
     font-weight: bold;
 }
@@ -43,6 +44,12 @@ header .links a:hover
 }
 header .logo
 {
+    padding: 15px 0px 15px 0px;
+    display: flex;
+    justify-content: center;
+}
+header .logo a
+{
     display: flex;
     justify-content: center;
 }
@@ -50,7 +57,75 @@ header .logo img
 {
     width: 40%;
 }
+.header 
+{
+    background: #03357c;
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+  
 
+/*headerstart*/
+.start header
+{
+    padding: 0% 0% 0% 0%;
+    background: #ffcc00;
+}
+.start header .container
+{
+    width: 60%;
+    margin: 0 auto;
+    background: transparent;
+}
+.start header nav
+{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+}
+.start header .start-links
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.start header .start-links a
+{
+    padding: 15px 0px 15px 0px;
+    font-family: 'Cairo', sans-serif;
+    text-decoration: none;
+    color: #03357c;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.start header .start-links a:hover
+{
+    color: #ffffff;
+}
+.start header .start-logo
+{
+    padding: 15px 0px 15px 0px;
+    display: flex;
+    justify-content: center;
+}
+.start header .start-logo a
+{
+    display: flex;
+    justify-content: center;
+}
+.start header .start-logo img
+{
+    width: 40%;
+}
+.start .header 
+{
+    background: #ffcc00;
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+/*footer*/
 footer{
     height: 6em;
     /*position: absolute;*/
