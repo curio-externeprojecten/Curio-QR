@@ -13,16 +13,20 @@
 </head>
 
 <body>
-  <header>
+  <!-- <header>
     <div class="header-wrap center">
       <h1>QR/AR Generator</h1>
-    </div>
-
+    </div> -->
+    <header>
+     <?php
+     require("header.php");
+     ?> 
+ </header>
   </header>
   <main>
     <div class="banner">
       <div class="bannertext size">
-      <h1><u>Home Pagina</u></h1>
+      <h1>QR/AR Generator</h1>
       </div>
 
     </div>
@@ -57,13 +61,8 @@
         </div>
     </div>
   </main>
-  <footer class="center">
-    <img src="img/curio-wit.png" alt="curio-logo" width="100" height="40">
-    <h4>Gemaakt door Curio Breda</h4>
-    
-
+  <footer>
+  <?php
+     require("footer.php");
+     ?> 
   </footer>
-</body>
-
-</html>
-!

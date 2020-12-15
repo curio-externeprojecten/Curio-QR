@@ -1,14 +1,4 @@
 /* ---===HEADER===--- */
-  header{
-    height:6em ;
-    width: 100%;
-    background-color: #f8aecd;
-    color:#03357c;
-  }
-    header h1{
-      font-family: 'Quicksand', sans-serif;
-      color: #03357c;
-    }
   h1{
     padding-top: 30px;
     margin-top: 0;
@@ -24,19 +14,18 @@
 /* ---===BANNER===--- */
  .banner{
     background-color:#03357c;
-    height: 200px;
+    height: 400px;
   }
     .bannertext h1{
       font-family: 'Cairo', sans-serif;
       color:  #f8aecd;
       font-weight: bolder;
-      font-size: 3em;
-      padding-top: 2%;
+      font-size: 5em;
+      padding-top: 5%;
 /* ---===FOOTER===--- */
     } 
   footer{
     height: 6em;
-    position: absolute;
     bottom: 0;
     width: 100%;
     justify-content: space-between;
