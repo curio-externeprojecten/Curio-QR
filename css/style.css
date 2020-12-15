@@ -143,18 +143,19 @@ footer img{
 /*instruction page*/
 .instructionContainer{
     display:flex;
+    flex-direction: row-reverse;
     border:1px black solid;
     padding:10px;
     background:gray;
 }
 /*instructions*/
-.instructions{/*temp*/
+.instructions{
     background:blue;
     width:60%;
     min-height:800px;
     padding:3%;
 }
-.instruction{/*temp*/
+.instruction{
     background:grey;
     border: 2px solid black;
     padding:10px;
@@ -176,9 +177,10 @@ footer img{
 }
 /*info & controls*/
 .instructionsControls{
-    background:yellow
-    ;width:35%;
-    height:500px;
+    background:yellow;/*temp*/
+    width:35%;
+    min-height:100px;
+    max-height:100px;
 }
 .instructionsInfo{
     background:red;
@@ -227,4 +229,58 @@ footer img{
     padding: 10px;
     border: 2px black solid;
     background: grey;
+}
+
+@media only screen and (max-width: 1300px){
+    .instructionContainer{
+        padding-top:2%;
+    }
+}
+@media only screen and (max-width: 1200px){
+    .instructionContainer{
+        padding-top:3%;
+    }
+}
+@media only screen and (max-width: 900px){
+    .instructionContainer{
+        display: block;
+        padding-top:5%;
+    }
+    .instructions{/*temp*/
+        width:94%;
+        margin: auto;
+        min-height:800px;
+    }
+    .instructionsControls{
+        width:100%;
+        padding-bottom: 15%;
+    }
+    .controls{
+        display: none;
+    }
+}
+@media only screen and (max-width: 800px){
+    .instructionContainer{
+        display: block;
+    }
+}
+@media only screen and (max-width: 750px){
+    .instructionContainer{
+        padding-top:14%;
+    }
+}
+@media only screen and (max-width: 650px){
+    .instructionContainer{
+        padding-top:20%;
+    }
+}
+@media only screen and (max-width: 550px){
+    .instructionContainer{
+        padding-top:23%;
+    }
+}
+@media only screen and (max-width: 500px){
+    .instructionContainer{
+        padding-top:25%;
+    }
 }

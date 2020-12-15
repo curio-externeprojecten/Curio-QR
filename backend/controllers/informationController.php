@@ -11,11 +11,8 @@ if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make
 	exit();
 }
 
-$sql2 = "DELETE FROM instructions_data WHERE instruction_id = :id";
-$sql = "DELETE FROM instructions WHERE id = :id"; 
 
-
-if($_POST['formtype'] == ''){//create project
+if($_POST['formtype'] == 'Create'){//create project
     $projectTitle = $_POST['title'];
     $projectDesc = $_POST['desc'];
     $creator = decryptUser($_SESSION['userId']);
@@ -23,11 +20,10 @@ if($_POST['formtype'] == ''){//create project
     $return = query("INSERT INTO instructions (creator, title, description) VALUES(:creator, :title, :Description)", 
     [':creator' => $creator, ':title' => $projectTitle, ':description' => $projectDesc]);
 
-    $id = $return['id'];
 
     include('backend/phpqrcode/qrlib.php');
 
-    $url = "http://qr.test/instructions.php?id=";
+    $url = "http://".$_SERVER['HTTP_HOST']."/instructions.php?id=";
     $table = selectone("SHOW TABLE STATUS FROM qr WHERE `name` LIKE 'instructions' ");
     $id = encrypt($table['Auto_increment'] - 1);
     $codeContents = $url . encrypt($id);
@@ -48,6 +44,8 @@ if($_POST['formtype'] == 'Delete'){//remove project
     $creator = decryptUser($_SESSION['userId']);
     $id = decrypt($_POST['id']);
 
+    //set to creator or superadmin
+
     $projectCreator = selectone("SELECT creator FROM instructions WHERE id = :id", ['id' => $id]);
     if($creator != $projectCreator['creator']){
         header('Location: ../index.php');
@@ -59,21 +57,43 @@ if($_POST['formtype'] == 'Delete'){//remove project
 
 }
 if($_POST['formtype'] == ''){//edit project
-    //code
+    $creator = decryptUser($_SESSION['userId']);
+    $id = decrypt($_POST['id']);
+
+    //change title
+    //change description
 }
-if($_POST['formtype'] == ''){//add instruction
-    //code
+if($_POST['formtype'] == 'addInstruct'){//add instruction
+    $creator = decryptUser($_SESSION['userId']);
+    $id = decrypt($_POST['id']);
+    $type = $_POST['type'];
+    $content = $_POST['content'];
+
+    select('');//get latest in list
+
+    query('');//insert 
 }
-if($_POST['formtype'] == ''){//remove instruction
-    //code
+if($_POST['formtype'] == 'remInstruct'){//remove instruction
+    $creator = decryptUser($_SESSION['userId']);
+    $id = decrypt($_POST['id']);
+
+    //get instruction
+    //remove instruction
+    //move other instruction
 }
 if($_POST['formtype'] == ''){//?move instruction
-    //code
+    $creator = decryptUser($_SESSION['userId']);
+    $id = decrypt($_POST['id']);
+
+    //move instruction down or up
 }
 if($_POST['formtype'] == ''){//edit instruction
-    //code
+    $creator = decryptUser($_SESSION['userId']);
+    $id = decrypt($_POST['id']);
+
+    //update instruction
 }
-if($_POST['formtype'] == ''){//generate qr
-    //code
-}
+
+//add user to project
+//remove user from project
 ?>
