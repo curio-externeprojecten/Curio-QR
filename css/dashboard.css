@@ -1,0 +1,28 @@
+*{
+	padding: 0;
+	margin: 0;
+
+}
+
+.container{
+	width: 1200px;
+    margin: 0 auto;
+}
+
+/*Bannner*/
+
+.banner{
+	display: grid;
+	/*justify-content: center;*/
+	/*align-content: center;*/
+	/*background: url("../backend/img/curio-prinsentuin-oudenbosch-klas.jpg");*/
+	background-color: #03357c;
+	height: 400px;
+}
+.bannertext h1{
+	font-family: 'Cairo', sans-serif;
+	color: #f8aecd;
+	font-weight: bolder;
+	font-size: 5em;
+	padding-top: 5%;
+}
