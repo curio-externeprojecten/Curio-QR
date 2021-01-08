@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+<?php
+
+    require __DIR__.'./backend/init.php';
+
+    $id = $_SESSION['userId'];
+
+
+    // if ( !isset($_SESSION['id'])) {
+    //     header("Location: login.php?msg= Log eerst in!");
+    // }
+
+    $user = selectOne("SELECT * FROM users WHERE id = :id",
+         [ ':id'    => $id]);
+    
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +31,8 @@
         <div class="banner">
             <div class="container">
                 <div class="bannertext">
-                    <h1>Dashboard</h1>
+                    <h1>Hi <?php echo($user['username']) ?></h1>
+                    <h2>Welkom op het dashboard!</h2>
                 </div>
              </div>
          </div>
