@@ -31,3 +31,37 @@
 	color: #f8aecd;
 	font-size: 2em;
 }
+
+/*main*/
+
+.maincontent{
+	background-color:#f8aecd;
+}
+
+.maincontent h3{
+	color: #03357c;
+	font-size: 2.2em;
+}
+
+.maincontent p{
+		font-family: 'Quicksand', sans-serif; 
+		color: #03357c;
+		font-size: 0.9em;
+}
+
+.articles{
+	display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 2% 0;
+}
+
+.article{
+	padding: 3%;
+}
+
+.article img{
+	width: 290px;
+	height: 170px;
+	float: left;
+	padding: 0 5%;
+}
