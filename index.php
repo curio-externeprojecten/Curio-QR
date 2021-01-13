@@ -13,16 +13,11 @@
 </head>
 
 <body>
-  <!-- <header>
-    <div class="header-wrap center">
-      <h1>QR/AR Generator</h1>
-    </div> -->
-    <header>
+  <head>
      <?php
      require("header.php");
      ?> 
- </header>
-  </header>
+ </head>
   <main>
     <div class="banner">
       <div class="bannertext size">
