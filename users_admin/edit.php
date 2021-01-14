@@ -3,7 +3,7 @@ require __DIR__ . './../backend/init.php';
 
 
 if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make this userid
-        header('Location: ../../index.php');
+        header('Location: ../index.php');
         exit();
         }
 
