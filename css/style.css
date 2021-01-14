@@ -230,6 +230,121 @@ footer img{
     border: 2px black solid;
     background: grey;
 }
+/*============ ADMIN EN ACCOUNT PAGINA============== */
+.twobanner{
+	display: grid;
+	background-color: #03357c;
+    height: 400px;
+}
+.twobanner h1{
+	font-family: 'Cairo', sans-serif;
+	color: #f8aecd;
+	font-weight: bolder;
+	font-size: 5em;
+    padding-top: 5%;
+}
+.twocontainer{
+    background: #f8aecd;
+    padding: 50px 0px;
+    height: 426px;
+}
+.admincontainer{
+    background: #f8aecd;
+    padding: 50px 0px;
+    height: 426px;
+}
+.align{
+    width: 200px;
+    display: inline-block;
+}
+.cursor{
+    cursor: pointer;
+}
+.card{
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+    padding: 15px; 
+}
+ul{
+    margin-left: 20px;
+}
+ul li{
+    list-style:circle;
+}
+ul li a{
+    text-decoration: none;
+}
+.edit-button{
+    background: #03357c;
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0px 1px 8px #03357c;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 42.3px;
+    margin: 0 auto;
+    margin-top: 20px;
+    transition: 0.25s;
+    width: 153px;
+    display: inline;
+}
+.delete-button{
+    display: inline;
+    background:red;
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0px 1px 8px red;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 42.3px;
+    transition: 0.25s;
+    width: 153px;
+}
+.toedit-button{
+    margin-top: 20px;
+}
+.toedit-button a{
+    text-decoration: none;
+    background: #03357c;
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0px 1px 8px #03357c;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    display: inline;
+    padding: 5px;
+}
+.delete-card{
+    margin-top: 20px;
+}
+option[value=""][disabled] {
+    display: none;
+  }
+.pink{
+    background: #f8aecd;
+}
+.small-size{
+    width: 360px;
+    margin-left: 26%;
+}
+.size{
+    width: 1200px;
+    margin: 0 auto;
+}
+table{
+    border-collapse: collapse;
+}
+th, td {
+    /* border: 1px solid black; */
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+  }
+
+/* ========================= */
 
 @media only screen and (max-width: 1300px){
     .instructionContainer{

@@ -48,12 +48,6 @@
         rem fuga enim molestiae voluptates quas voluptas quibusdam sint facilis? Repellendus non illum excepturi asperiores doloremque praesentium quia perferendis obcaecati. 
         Aliquam vitae debitis similique repellat esse tempore aspernatur aperiam! Quidem, harum. Harum odio vero provident quis, ut, 
         similique modi nam nostrum totam nulla maxime cumque soluta atque doloribus vitae temporibus ea? Asperiores, aperiam qui?</p> 
-        <div>
-          <a href="login.php" class="size">Login</a> 
-        </div>  
-        <div>
-        <a href="" class="size">Vraag een account aan</a>   
-        </div>
     </div>
   </main>
   <footer>

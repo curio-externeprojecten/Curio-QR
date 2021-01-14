@@ -56,13 +56,13 @@
                          <img src="backend/img/qr5.png" alt="People buying stuff">
                          <h4>Admin Pagina</h4>
                          <p>Deze pagina kan je alleen gebruiken als je een van de hogere admins bent. Hier kan je andere accounts beheren en andere account hogere admins maken. Ook kun je de Qr pagina's hier beheren</p>
-                         <a href="">Naar de pagina ></a>
+                         <a href="users/edit.php">Naar de pagina ></a>
                      </div>
                      <div class="article">
                          <img src="backend/img/qr4.jpg" alt="Person at front desk">
-                         <h4>Jou account</h4>
+                         <h4>Mijn Account</h4>
                          <p>Hier kan je jou accountgegevens zien en aanpassen wanneer gewenst.</p>
-                         <a href="">Naar de pagina ></a>
+                         <?="<a href='u_account/my_account.php?id=${user['id']}'>Naar de pagina ></a>"?>
                      </div>
                  </div>
              </div>

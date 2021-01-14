@@ -1,19 +1,22 @@
 <?php
 require __DIR__ . './../backend/init.php';
-// $id = $_SESSION['userId'];
-
-
 
 // if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make this userid
 //     header('Location: ../../index.php');
 //     exit();
 //     }
-    
+
 $id = $_GET['id'];
 $user = selectOne("SELECT * FROM users WHERE id = :id", [
-    ':id' => $id]);
-//add <?= "<a href='my_account.php?id=${user['id']}'</a>" to dashboard "Jouw Account" link. 
+    ':id' => $id
+]);
+
+$creator = $_GET['id'];
+$qrs = select("SELECT * FROM instructions WHERE creator = :creator", [
+    ':creator' => $creator
+]);
 ?>
+
 <body>
     <header>
         <?php
@@ -21,31 +24,66 @@ $user = selectOne("SELECT * FROM users WHERE id = :id", [
         ?>
 
     </header>
-    <h2>Mijn Account:</h2>
-    <div>
-        <label for="user">Gebruikersnaam:</label>
-        <?=$user['username']?>
+    <div class="twobanner">
+        <h1 class="size">Mijn Account:</h1>
     </div>
-    <div>
-        <label for="email">Email:</label>
-        <?=$user['email']?>
-    </div>
-    <div>
-        <input type="submit" value="Wijzingen">
-    </div>
-    <div>
-    <label for="qr">Mijn QR Code's:</label>
-    </div>
-    <div>
-    <label for="delete">Account verwijderen</label>
-    <input type="hidden" name="formType" value="delete">
-    <input type="hidden" name="id" value="<?= $user['id']?>">
-    <!-- Need to check if this input is correct -->
-    </div>
+    <div class="pink">
+        <div class="twocontainer size">
+            <div class="card">
+                <?= $user['username']?>
+                <div>
+                    <label class="align" for="user">Gebruikersnaam:</label>
+                    <?= $user['username'] ?>
+                </div>
+                <div>
+                    <label class="align" for="email">Email:</label>
+                    <?= $user['email'] ?>
+                </div>
+                <div>
+                <label class="align" for="rank">Admin Status:</label>
+                    <?= $user['rank']?>
+                </div>
+                <div>
+                    <label for="qr">Mijn QR Code's:</label>
+                    <table>
 
-<footer>
-<?php
-require("../users/footer.php")
-?>
-</footer>
+                        <tr>
+                            <th>Titel:</th>
+                            <?php foreach ($qrs as $qr) {
+                                echo "<td>${qr['title']}<td>";
+                            } ?>
+                        </tr>
+                        <tr>
+                            <th>QR Code:</th>
+                            <?php foreach ($qrs as $qr){
+                                echo "<td>http://qr.test/instructions.php?id= . {encrypt((${qr['id']})}</td>";
+                            }?>
+                            <td>QR CODE?????</td>
+                        </tr>
+                        <tr>
+                            <th>Omschrijving:</th>
+                            <?php foreach ($qrs as $qr) {
+                                echo "<td>${qr['description']}<td>";
+                            } ?>
+                        </tr>
+                        <tr>
+                            <th>Gemaakt op:</th>
+                            <?php foreach ($qrs as $qr) {
+                                echo "<td>${qr['created_time']}<td>";
+                            } ?>
+                        </tr>
+                        </tr>
+                    </table>
+                </div>
+                <div class="toedit-button">
+                    <?= "<a href='edit.php?id=${user['id']}'>Account Wijzigen</a>" ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <?php
+        require("../users/footer.php")
+        ?>
+    </footer>
 </body>
