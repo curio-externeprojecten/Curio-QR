@@ -60,8 +60,8 @@ $user = selectOne("SELECT * FROM users WHERE id = :id", [
                 </div>
                 <div>
                     <label class="align" class="adminLabel" for="status">Admin Status:</label>
-                    <select class="cursor" name="user_rank" id="rank" form="form2">
-                        <option value="" disabled selected>Rank</option>
+                    <select required class="cursor" name="user_rank" id="rank" form="form2">
+                        <option value="" disabled selected>Status</option>
                         <option value="user">User</option>
                         <option value="admin">Admin</option>
                         <option value="superadmin">Super-Admin</option>

@@ -2,10 +2,10 @@
 require __DIR__ . './../backend/init.php';
 
 
-if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make this userid
-    header('Location: ../../index.php');
-    exit();
-    }
+// if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make this userid
+//     header('Location: ../../index.php');
+//     exit();
+//     }
 
 $id = $_GET['id'];
 $user = selectOne("SELECT * FROM users WHERE id = :id", [
@@ -17,7 +17,7 @@ $user = selectOne("SELECT * FROM users WHERE id = :id", [
 <body>
     <header>
         <?php
-        require("../users/header.php");
+        require("../users_admin/header.php");
         ?>
     </header>
     <div class="twobanner">
@@ -42,7 +42,7 @@ $user = selectOne("SELECT * FROM users WHERE id = :id", [
                     </div>
                 </form>
                 <form action="../backend/controllers/userController.php">
-                    <input type="hidden" name="formType" value="delete">
+                    <input type="hidden" name="formType" value="delete_acc">
                     <input type="hidden" name="id" value="<?= $user['id'] ?>">
                     <div>
                         <input class="delete-button delete-card" type="submit" value="Account Verwijderen">
@@ -53,7 +53,7 @@ $user = selectOne("SELECT * FROM users WHERE id = :id", [
     </div>
     <footer>
         <?php
-        require("../users/footer.php");
+        require("../users_admin/footer.php");
         ?>
     </footer>
 </body>

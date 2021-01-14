@@ -23,7 +23,7 @@ if ($_POST['formType'] == 'edit') {
         ':email'    => $email,
         ':user_rank'     => $rank
     ]);
-    redirect("../../users/edit.php");
+    redirect("../../users_admin/edit.php");
     exit();
 
 
@@ -34,7 +34,7 @@ if ($_POST['formType'] == 'edit') {
     query("UPDATE users SET
                 id          = :id,
                 username    = :username,
-                email       = :email,
+                email       = :email
                 WHERE id = :id", [
         ':id'       => $id,
         ':username' => $username,
@@ -48,6 +48,13 @@ if ($_POST['formType'] == 'edit') {
     query("DELETE FROM users WHERE id = :id", [
         ':id' => $id
     ]);
-    redirect("../../users/edit.php");
+    redirect("../../users_admin/edit.php");
+    exit();
+} else if ($_POST['formType'] == 'delete_acc') {
+    $id = $_POST['id'];
+    query("DELETE FROM users WHERE id = :id", [
+        ':id' => $id
+    ]);
+    exit();
 }
 

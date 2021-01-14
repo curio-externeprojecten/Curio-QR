@@ -56,7 +56,7 @@
                          <img src="backend/img/qr5.png" alt="People buying stuff">
                          <h4>Admin Pagina</h4>
                          <p>Deze pagina kan je alleen gebruiken als je een van de hogere admins bent. Hier kan je andere accounts beheren en andere account hogere admins maken. Ook kun je de Qr pagina's hier beheren</p>
-                         <a href="users/edit.php">Naar de pagina ></a>
+                         <a href="users_admin/edit.php">Naar de pagina ></a>
                      </div>
                      <div class="article">
                          <img src="backend/img/qr4.jpg" alt="Person at front desk">

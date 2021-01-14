@@ -20,7 +20,7 @@ $qrs = select("SELECT * FROM instructions WHERE creator = :creator", [
 <body>
     <header>
         <?php
-        require("../users/header.php");
+        require("../users_admin/header.php");
         ?>
 
     </header>
@@ -83,7 +83,7 @@ $qrs = select("SELECT * FROM instructions WHERE creator = :creator", [
     </div>
     <footer>
         <?php
-        require("../users/footer.php")
+        require("../users_admin/footer.php")
         ?>
     </footer>
 </body>
