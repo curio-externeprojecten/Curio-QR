@@ -10,6 +10,8 @@
 
     $title = selectOne("SELECT title FROM instructions WHERE id = :id",
     [":id" => $id]);
+    $description = selectOne("SELECT description FROM instructions WHERE id = :id",
+    [":id" => $id]);
 ?>
 
 <form action="POST">
@@ -21,6 +23,17 @@
     </div>    
     <div>
     <input type="submit" value="Verander Title">
+    </div>
+</form>
+<form action="POST">
+    <div>
+    <label value="<?=$description?>" for="discription">beschrijving veranderen</label>
+    </div>
+    <div>
+    <input type="text" name="description">
+    </div>    
+    <div>
+    <input type="submit" value="Verander Beschrijving">
     </div>
 </form>
 <?php
