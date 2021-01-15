@@ -6,7 +6,7 @@
         // exit();} 
 
     require __DIR__.'\backend/init.php';
-    $id = $_GET['id'];
+    $id = $_SESSION['userId'];
 
     $title = selectOne("SELECT title FROM instructions WHERE id = :id",
     [":id" => $id]);
@@ -14,7 +14,7 @@
     [":id" => $id]);
 ?>
 
-<form action="POST">
+<form method="POST">
     <div>
     <label value="<?=$title?>" for="title">Title veranderen</label>
     </div>
@@ -25,7 +25,7 @@
     <input type="submit" value="Verander Title">
     </div>
 </form>
-<form action="POST">
+<form method="POST">
     <div>
     <label value="<?=$description?>" for="discription">beschrijving veranderen</label>
     </div>
