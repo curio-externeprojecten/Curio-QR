@@ -49,25 +49,31 @@
 		font-size: 0.9em;
 }
 
-.articles{
+.maincontent .articles{
 	display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: auto auto;
   padding: 2% 0;
 }
 
-.article{
+.maincontent .article{
 	padding: 3%;
 }
 
-.article img{
+.maincontent .article img{
 	width: 290px;
 	height: 170px;
 	float: left;
-	padding: 0 5%;
+	margin-right: 2%; 
 }
 
 
-.article a{
+.maincontent .article a{
 	color: #78034B;
 	font-weight: bold;
+}
+
+.maincontent .article h4{
+	font-family: 'Cairo', sans-serif;
+	color: #03357c;
+	font-size: 1.3em;
 }

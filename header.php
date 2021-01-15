@@ -11,7 +11,6 @@
 </head>
 <body>
 <header>
-<<<<<<< Updated upstream
     <div class="header" id="myHeader">
         <div class="container">
             <nav>
@@ -24,17 +23,4 @@
                 </div>
             </nav>
         </div>
-=======
-    <div class="container">
-        <nav>
-            <div class="links">
-                <a href="index.php">Home Page</a>
-                <a href="login.php">Login</a>
-            </div>     
-            <div class="logo">
-                <img src="Images/curio.png" alt="curio logo">
-            </div>
-        </nav>
->>>>>>> Stashed changes
-    </div>
 </header>
