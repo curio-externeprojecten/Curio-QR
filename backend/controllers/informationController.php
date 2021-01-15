@@ -11,6 +11,7 @@ if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make
 	exit();
 }
 
+<<<<<<< Updated upstream
 
 if($_POST['formtype'] == 'Create'){//create project
     $projectTitle = $_POST['title'];
@@ -96,4 +97,36 @@ if($_POST['formtype'] == ''){//edit instruction
 
 //add user to project
 //remove user from project
+=======
+$sql2 = "DELETE FROM instructions_data WHERE instruction_id = :id";
+$sql = "DELETE FROM instructions WHERE id = :id"; 
+
+
+if($_POST['formtype'] == ''){//create project
+    //code
+}
+if($_POST['formtype'] == ''){//remove project
+    //code
+    //delete instructions then project
+
+}
+if($_POST['formtype'] == ''){//edit project
+    //code
+}
+if($_POST['formtype'] == ''){//add instruction
+    //code
+}
+if($_POST['formtype'] == ''){//remove instruction
+    //code
+}
+if($_POST['formtype'] == ''){//?move instruction
+    //code
+}
+if($_POST['formtype'] == ''){//edit instruction
+    //code
+}
+if($_POST['formtype'] == ''){//generate qr
+    //code
+}
+>>>>>>> Stashed changes
 ?>

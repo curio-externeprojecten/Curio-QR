@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 /*font-family: 'Cairo', sans-serif;
 font-family: 'Quicksand', sans-serif;*/
 
@@ -9,8 +13,13 @@ font-family: 'Quicksand', sans-serif;*/
 }
 header
 {
+<<<<<<< Updated upstream
     padding: 3% 0% 3% 0%;
     background: #03357c;
+=======
+    padding: 1% 0% 1% 0%;
+    background: #00ff22;
+>>>>>>> Stashed changes
 }
 header .container
 {
@@ -31,10 +40,16 @@ header .links
 }
 header .links a
 {
+<<<<<<< Updated upstream
     padding: 15px 0px 15px 0px;
     font-family: 'Cairo', sans-serif;
     text-decoration: none;
     color: #f8aecd;
+=======
+    font-family: 'Cairo', sans-serif;
+    text-decoration: none;
+    color: #000000;
+>>>>>>> Stashed changes
     font-size: 2rem;
     font-weight: bold;
 }
@@ -44,18 +59,22 @@ header .links a:hover
 }
 header .logo
 {
+<<<<<<< Updated upstream
     padding: 15px 0px 15px 0px;
     display: flex;
     justify-content: center;
 }
 header .logo a
 {
+=======
+>>>>>>> Stashed changes
     display: flex;
     justify-content: center;
 }
 header .logo img
 {
     width: 40%;
+<<<<<<< Updated upstream
 }
 .header 
 {
@@ -144,18 +163,37 @@ footer img{
 .instructionContainer{
     display:flex;
     flex-direction: row-reverse;
+=======
+=======
+*{
+    margin:0;
+    padding:0;
+}
+
+/*instruction page*/
+.container{
+    display:flex;
+>>>>>>> Stashed changes
     border:1px black solid;
     padding:10px;
     background:gray;
 }
 /*instructions*/
+<<<<<<< Updated upstream
 .instructions{
+=======
+.instructions{/*temp*/
+>>>>>>> Stashed changes
     background:blue;
     width:60%;
     min-height:800px;
     padding:3%;
 }
+<<<<<<< Updated upstream
 .instruction{
+=======
+.instruction{/*temp*/
+>>>>>>> Stashed changes
     background:grey;
     border: 2px solid black;
     padding:10px;
@@ -177,10 +215,16 @@ footer img{
 }
 /*info & controls*/
 .instructionsControls{
+<<<<<<< Updated upstream
     background:yellow;/*temp*/
     width:35%;
     min-height:100px;
     max-height:100px;
+=======
+    background:yellow
+    ;width:35%;
+    height:500px;
+>>>>>>> Stashed changes
 }
 .instructionsInfo{
     background:red;
@@ -205,6 +249,7 @@ footer img{
     padding:20px;
 }
 .controls .remove{
+<<<<<<< Updated upstream
     display: flex;
     justify-content: center;
     align-items: center;
@@ -398,4 +443,14 @@ th, td {
     .instructionContainer{
         padding-top:25%;
     }
+=======
+    margin:auto;
+    width:100px
+}
+
+.controls .remove button{
+    width:100px;
+    height:50px;
+>>>>>>> ca0efef9fcab6b2963142464dd367299049b5445
+>>>>>>> Stashed changes
 }

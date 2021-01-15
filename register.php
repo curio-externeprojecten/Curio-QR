@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,8 @@
     <link rel="stylesheet" href="css/login.css">
     <title>register page</title>
 </head>
+=======
+>>>>>>> Stashed changes
 <?php
 require("header.php");
 ?>
@@ -18,6 +21,7 @@ require("header.php");
         </div>
     </div>
     <div class="login">
+<<<<<<< Updated upstream
         <div class="container">
           <div id="card">
             <div id="card-content">
@@ -48,6 +52,16 @@ require("header.php");
                 <a href="login.php" id="signup">Already have a account?</a>
             </form>
         </div>
+=======
+        <h1>register</h1>
+        <form action="backend/controllers/users.php" method="post">
+            <input type="hidden" name="formType" value="register">
+            <input class="email" type="email" name="email" placeholder="Email" id="email" required>
+            <input class="password" type="password" name="password" placeholder="Password" id="password" required>
+            <input class="username" type="text" name="username" placeholder="Username" id="username" required>
+            <input type="submit" value="register">
+        </form>
+>>>>>>> Stashed changes
     </div>
 </main>
 

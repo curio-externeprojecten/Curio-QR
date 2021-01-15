@@ -94,11 +94,18 @@ else if ($_POST['formType'] == 'login') {
         // b. De sessie vullen met gegevens
         $_SESSION['username'] = $user['name'];
         $_SESSION['loggedIn'] = true;
+<<<<<<< Updated upstream
         $_SESSION['userId'] = $user['id'];
 
         // c. de gebruiker redirecten naar secret.php
         header('location: ../../dashboard.php');;
          exit();
+=======
+        $_SESSION['userId'] = encryptUser($user['id']);
+
+        // c. de gebruiker redirecten naar secret.php
+        redirect('../../register.php');
+>>>>>>> Stashed changes
        
     // het login script verder maken.
 } 
