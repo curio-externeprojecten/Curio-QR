@@ -10,7 +10,7 @@
 
     $title = selectOne("SELECT title FROM instructions WHERE id = :id",
     [":id" => $id]);
-    $description = selectOne("SELECT description FROM instructions WHERE id = :id",
+    $description = selectOne("SELECT 'description' FROM instructions WHERE id = :id",
     [":id" => $id]);
 ?>
 
