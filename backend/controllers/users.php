@@ -70,6 +70,8 @@ else if ($_POST['formType'] == 'login') {
     
     // 2. Valideren van ingekomen gegevens (optimalisatie)
 
+// onhash het wachtwoord??
+
 
     // 3. check of account met combinatie password en email bestaat
         // a. probeer de user te selecteren met dit wachtwoord en email combinatie
@@ -79,6 +81,7 @@ else if ($_POST['formType'] == 'login') {
                 ':password' => $password
             ]
         );
+        echo $user;
 
         if ($user == false) {
             echo "email of wachtwoord niet goed";

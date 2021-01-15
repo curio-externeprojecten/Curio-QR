@@ -1,45 +1,50 @@
-/* ---===HEADER===--- */
-  h1{
-    padding-top: 30px;
-    margin-top: 0;
-  }
-/* ---===BODY===--- */
-  body{
-    font-family: 'Cairo', sans-serif ;
-  }
-  body,footer h4{
-    margin: 0;
-    padding:0;
-  }
+
+.container{
+  width: 1200px;
+    margin: 0 auto;
+}
+h1, h2, h3{
+  font-family: 'Cairo', sans-serif;
+      color:  #f8aecd;
+}
+p{
+  font-family: 'Quicksand', sans-serif; 
+}
+
 /* ---===BANNER===--- */
  .banner{
     background-color:#03357c;
-    height: 400px;
+    height: 250px;
   }
     .bannertext h1{
       font-family: 'Cairo', sans-serif;
       color:  #f8aecd;
       font-weight: bolder;
-      font-size: 5em;
-      padding-top: 5%;
-/* ---===FOOTER===--- */
-    } 
-  footer{
-    height: 6em;
-    bottom: 0;
-    width: 100%;
-    justify-content: space-between;
-    background-color: #03357c;
-    color:#f8aecd;
-  }
-    footer img{
-      margin: 6px;
+      font-size: 4em;
     }
-/* ---===HELPER===--- */
-  .center{
-    text-align: center;
-  }
-  .size{
-    width: 1200px;
-    margin: 0 auto;
-  }
+
+/*//Main//*/
+
+main{
+  background-color: #f8aecd;
+}
+
+.articles{
+  display: grid;
+  grid-template-columns: 65% 30%;
+  padding: 3% 0;
+  grid-gap: 2%;
+}
+.article{
+  padding: 2%;
+}
+.articles h2{
+  color: #03357c;
+}
+.article img{
+  padding: 1%;
+  width: 200px;
+}
+.articleimg{
+  padding:4%;
+}

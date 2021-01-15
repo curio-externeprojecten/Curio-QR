@@ -10,6 +10,13 @@
 require("header.php");
 ?>
 <main class="loginmain">
+    <div class="banner">
+        <div class="container">
+            <div class="bannertext">
+                <h1>Register pagina</h1>
+            </div>
+        </div>
+    </div>
     <div class="login">
         <div class="container">
           <div id="card">
@@ -19,7 +26,7 @@ require("header.php");
                 <div class="underline-title"></div>
             </div>
             <form method="post" class="form" action="backend/controllers/users.php">
-                <input type="hidden" name="formType" value="login">
+                <input type="hidden" name="formType" value="register">
                 <label for="user-email" style="padding-top:13px">
                     &nbsp;Email
                 </label>
@@ -37,7 +44,7 @@ require("header.php");
                 </label>
                 <input id="usernane" class="username form-content" type="text" name="username" id="username" required>
                 <div class="form-border"></div>
-                <input id="submit-btn" type="submit" name="submit" value="login" />
+                <input id="submit-btn" type="submit" name="submit" value="register" />
                 <a href="login.php" id="signup">Already have a account?</a>
             </form>
         </div>
