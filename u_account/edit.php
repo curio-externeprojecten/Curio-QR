@@ -40,6 +40,9 @@ $user = selectOne("SELECT * FROM users WHERE id = :id", [
                     <div>
                         <input class="edit-button" type="submit" value="Account Wijzingen">
                     </div>
+                    <div class="toedit-button">
+                        <a  href="../titleedit.php">QR Code Wijzigen</a>
+                    </div>
                 </form>
                 <form action="../backend/controllers/userController.php">
                     <input type="hidden" name="formType" value="delete_acc">
