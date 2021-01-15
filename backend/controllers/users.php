@@ -75,15 +75,14 @@ else if ($_POST['formType'] == 'login') {
 
     // 3. check of account met combinatie password en email bestaat
         // a. probeer de user te selecteren met dit wachtwoord en email combinatie
-        $user = selectOne("SELECT * FROM users WHERE email = :email AND password = :password",
+        $user = selectOne("SELECT * FROM users WHERE email = :email",
             [
                 ':email'    => $email,
-                ':password' => $password
             ]
         );
-        echo $user;
+        $check = password_verify($password, $user['password']);
 
-        if ($user == false) {
+        if ($check == false) {
             echo "email of wachtwoord niet goed";
             exit;
         }
@@ -94,18 +93,12 @@ else if ($_POST['formType'] == 'login') {
         // b. De sessie vullen met gegevens
         $_SESSION['username'] = $user['name'];
         $_SESSION['loggedIn'] = true;
-<<<<<<< Updated upstream
+
         $_SESSION['userId'] = $user['id'];
 
         // c. de gebruiker redirecten naar secret.php
         header('location: ../../dashboard.php');;
          exit();
-=======
-        $_SESSION['userId'] = encryptUser($user['id']);
-
-        // c. de gebruiker redirecten naar secret.php
-        redirect('../../register.php');
->>>>>>> Stashed changes
        
     // het login script verder maken.
 } 
