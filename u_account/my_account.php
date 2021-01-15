@@ -54,13 +54,6 @@ $qrs = select("SELECT * FROM instructions WHERE creator = :creator", [
                             } ?>
                         </tr>
                         <tr>
-                            <th>QR Code:</th>
-                            <?php foreach ($qrs as $qr){
-                                echo "<td>http://qr.test/instructions.php?id= . {encrypt((${qr['id']})}</td>";
-                            }?>
-                            <td>QR CODE?????</td>
-                        </tr>
-                        <tr>
                             <th>Omschrijving:</th>
                             <?php foreach ($qrs as $qr) {
                                 echo "<td>${qr['description']}<td>";
