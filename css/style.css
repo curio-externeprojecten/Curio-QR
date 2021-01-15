@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
 /*font-family: 'Cairo', sans-serif;
 font-family: 'Quicksand', sans-serif;*/
 
@@ -13,13 +9,8 @@ font-family: 'Quicksand', sans-serif;*/
 }
 header
 {
-<<<<<<< Updated upstream
     padding: 3% 0% 3% 0%;
     background: #03357c;
-=======
-    padding: 1% 0% 1% 0%;
-    background: #00ff22;
->>>>>>> Stashed changes
 }
 header .container
 {
@@ -45,11 +36,6 @@ header .links a
     font-family: 'Cairo', sans-serif;
     text-decoration: none;
     color: #f8aecd;
-=======
-    font-family: 'Cairo', sans-serif;
-    text-decoration: none;
-    color: #000000;
->>>>>>> Stashed changes
     font-size: 2rem;
     font-weight: bold;
 }
@@ -59,22 +45,18 @@ header .links a:hover
 }
 header .logo
 {
-<<<<<<< Updated upstream
     padding: 15px 0px 15px 0px;
     display: flex;
     justify-content: center;
 }
 header .logo a
 {
-=======
->>>>>>> Stashed changes
     display: flex;
     justify-content: center;
 }
 header .logo img
 {
     width: 40%;
-<<<<<<< Updated upstream
 }
 .header 
 {

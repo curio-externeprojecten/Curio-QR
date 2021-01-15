@@ -5,13 +5,8 @@ require("header.php");
 // header('Location: ../index.php');
 // exit();} 
 
-<<<<<<< Updated upstream
-require __DIR__ . '\backend/init.php';
-$id = $_SESSION['userId'];
-=======
     require __DIR__.'\backend/init.php';
     $id = $_SESSION['userId'];
->>>>>>> Stashed changes
 
 $title = selectOne(
     "SELECT title FROM instructions WHERE id = :id",
@@ -22,8 +17,6 @@ $description = selectOne(
     [":id" => $id]
 );
 ?>
-
-<<<<<<< Updated upstream
 <style>
     .editform {
         margin-left: 30%;
@@ -42,7 +35,7 @@ $description = selectOne(
 </style>
 <div class="editform">
     <div class="titledit">
-        <form method="POST">
+        <form method="POST" action="backend/controllers/edit.php">
             <div>
                 <label value="<?= $title ?>" for="title">Title veranderen</label>
             </div>
@@ -52,15 +45,11 @@ $description = selectOne(
             <div>
                 <input type="submit" value="Verander Title">
             </div>
-        </form>
-=======
-<form method="POST" action="">
-    <div>
-    <label value="<?=$title?>" for="title">Title veranderen</label>
->>>>>>> Stashed changes
-    </div>
-    <div class="desedit">
-        <form method="POST">
+
+            <div>
+                <label value="<?=$title?>" for="title">Title veranderen</label>
+            </div>
+
             <div>
                 <label value="<?= $description ?>" for="discription">beschrijving veranderen</label>
             </div>
@@ -70,24 +59,10 @@ $description = selectOne(
             <div>
                 <input type="submit" value="Verander Beschrijving">
             </div>
-        </form>
-    </div>
-<<<<<<< Updated upstream
+            
+        </div>
+    </form>
 </div>
-=======
-</form>
-<form method="POST" action=""> 
-    <div>
-    <label value="<?=$description?>" for="discription">beschrijving veranderen</label>
-    </div>
-    <div>
-    <input type="text" name="description">
-    </div>    
-    <div>
-    <input type="submit" value="Verander Beschrijving">
-    </div>
-</form>
->>>>>>> Stashed changes
 <?php
 require('footer.php');
 ?>
