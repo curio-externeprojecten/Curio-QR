@@ -82,7 +82,7 @@ else if ($_POST['formType'] == 'login') {
         );
         $check = password_verify($password, $user['password']);
 
-        if ($check == false) {
+        if (!$check) {
             echo "email of wachtwoord niet goed";
             exit;
         }
@@ -100,7 +100,6 @@ else if ($_POST['formType'] == 'login') {
         header('location: ../../dashboard.php');;
          exit();
        
-    // het login script verder maken.
 } 
 else if ($_POST['formType'] == 'logout') {
     // als iemand wilt uitloggen
