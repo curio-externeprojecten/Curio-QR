@@ -145,30 +145,46 @@ footer img{
 .instructionContainer{
     display:flex;
     flex-direction: row-reverse;
+    border:1px black solid;
+    padding:10px;
+    background:#03357c;
+    font-family: 'Cairo', sans-serif;
 }
-*{
-    margin:0;
-    padding:0;
+.instructionContainer h2{
+    font-family: 'Quicksand', sans-serif;
 }
-
 /*instructions*/
 .instructions{
-    background:blue;
+    background:none;
     width:60%;
-    min-height:800px;
+    min-height:750px;
     padding:3%;
 }
+.instructions iframe{
+    width: 100%;
+    height: 100%;
+    min-height: 70vh;
+    overflow: hidden;
+    /*min-height: 800px;*/
+}
 .instruction{
-    background:grey;
+    background:#01563f;
+    color: #f8aecd;
     border: 2px solid black;
     padding:10px;
     min-height: 100px;
+    max-width: 100%;
 }
-.instruction image{
-    width:100%;
+.instruction img{
+    min-width: 100%;
+    max-width:100%;
+    max-height: 100%;
 }
-.instruction video{
+.instruction iframe{
     width:100%;
+    height:100%;
+    min-height: 360px;
+    align-items: center;
 }
 .addInstruction{
     margin:auto;
@@ -178,22 +194,117 @@ footer img{
     width:100%;
     height:100px;
 }
+.controlContainer{
+    width: 100%;
+    margin-bottom: 35px;
+}
+.control{
+    float: right;
+    padding: 5px;
+}
+.control input{
+    background: none;
+    border: none;
+    font-size: larger;
+}
+.control input:hover{
+    color: white;
+}
+.overlay{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(90, 90, 90, 0.5);
+    overflow: hidden;
+}
+.addWindow{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 400px;
+    padding: 20px;
+    border-radius: 5%;
+    background-color: #5b6467;
+    background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+}
+.addWindow button{
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.addWindow select{
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+.addWindow textarea{
+    display: block;
+    position:absolute;
+    left: 50%;
+    top: 60px;
+    transform: translate(-50%);
+    width: 350px;
+    height: 200px;
+    padding: 1px;
+    font-size: larger;
+}
+.addWindow input[type=file]{
+    display: none;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+}
+.addWindow input[type=text]{
+    display: none;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    padding: 5px;
+    transform: translate(-50%);
+}
+.addWindow input[type=submit]{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 80px;
+    height: 30px;
+    border-radius: 10%;
+}
+.addWindow label{
+    display: none;
+    position:absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%);
+}
+
 /*info & controls*/
 .instructionsControls{
-    background:yellow;/*temp*/
+    background: #03357c;
     width:35%;
     min-height:100px;
     max-height:100px;
 }
 .instructionsInfo{
-    background:red;
-    padding:10px
+    padding:10px;
+    color: #f8aecd;
+    background: #03357c;
+    border: 2px solid black;
 }
 .instructionsTitle{
     text-align:center;
     height:30px;
     border:grey 1px solid;
-    background:lightgray;
+    background:darkgreen;
 }
 .instructionsCreator{
     display:flex;
@@ -204,7 +315,7 @@ footer img{
     padding:25px
 }
 .controls{
-    background:green;
+    background: #03357c;
     padding:20px;
 }
 .controls .remove{
@@ -214,6 +325,32 @@ footer img{
     width:100%;
     column-gap: 1px;
 }
+.userchanger{
+    display: none;
+    position: fixed;
+    top:50%;
+    left:50%;
+    width: 450px;
+    height: 300px;
+}
+.userchanger form{
+    width: 100%;
+    height: 100%;
+}
+.userchanger input[type=text]{
+    display: inline;
+    height: 30px;
+    padding: 5px;
+    font-size: larger;
+}
+.userchanger input[type=submit]{
+    display: block;
+    color: black;
+    width: 150px;
+}
+.userchanger label{
+    display: inline;
+}
 #qrBlock{
     flex-direction: column;
     padding-top:10px;
@@ -221,6 +358,7 @@ footer img{
 .controls button{
     width:100px;
     height:50px;
+    border-radius: 15%;
 }
 .controls input{
     display: none;
@@ -232,6 +370,10 @@ footer img{
     padding: 10px;
     border: 2px black solid;
     background: grey;
+}
+
+.flex{
+    display: flex;
 }
 /*============ ADMIN EN ACCOUNT PAGINA============== */
 .twobanner{
@@ -367,7 +509,6 @@ th, td {
     .instructions{/*temp*/
         width:94%;
         margin: auto;
-        min-height:800px;
     }
     .instructionsControls{
         width:100%;
@@ -401,12 +542,18 @@ th, td {
     .instructionContainer{
         padding-top:25%;
     }
-
-    margin:auto;
-    width:100px
+    .addWindow{
+        width: 100vw;
+    }
 }
-
-.controls .remove button{
-    width:100px;
-    height:50px;
+@media only screen and (max-width: 400px){
+    .instructionContainer{
+        padding-top:25%;
+    }
+    .addWindow{
+        width: 100vw;
+    }
+    .addWindow textarea{
+        width: 90vw;
+    }
 }

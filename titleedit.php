@@ -17,21 +17,32 @@ $description = selectOne(
     [":id" => $id]
 );
 ?>
+<body class="background">
 <style>
-    .editform {
-        margin-left: 30%;
-        margin-right: 30%;
-        margin-top: 25%;
-        padding: 50px 0px 50px 0px;
-        border-radius: 15px;
-        background: rgb(7, 24, 103);
-        background: linear-gradient(0deg, rgba(7, 24, 103, 1) 0%, rgba(0, 157, 238, 1) 100%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
+.background
+{
+     background-image: url("https://m.wsj.net/video/20170914/09142017_mw_studentdebthistory/09142017_mw_studentdebthistory_960x540.jpg");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+}
+.editform {
+    margin: 15% 30% 15% 30%;
+    padding: 50px 0px 50px 0px;
+    border-radius: 15px;
+    background: rgb(7, 24, 103);
+    background: linear-gradient(0deg, rgb(3,53,124, 1) 0%, rgba(3, 157, 200, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.titledit
+{
+    width: 200px;
+    margin-bottom: 50px;
+}
 </style>
 <div class="editform">
     <div class="titledit">
@@ -45,11 +56,10 @@ $description = selectOne(
             <div>
                 <input type="submit" value="Verander Title">
             </div>
-
-            <div>
-                <label value="<?=$title?>" for="title">Title veranderen</label>
-            </div>
-
+        </form>
+    </div>
+    <div class="discedit">
+        <form method="POST" action="backend/controllers/edit.php">
             <div>
                 <label value="<?= $description ?>" for="discription">beschrijving veranderen</label>
             </div>
@@ -59,10 +69,10 @@ $description = selectOne(
             <div>
                 <input type="submit" value="Verander Beschrijving">
             </div>
-            
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
+</body>
 <?php
 require('footer.php');
 ?>

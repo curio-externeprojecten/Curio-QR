@@ -23,7 +23,7 @@ if ($_POST['formType'] == 'edit') {
         ':email'    => $email,
         ':user_rank'     => $rank
     ]);
-    redirect("../../users_admin/edit.php");
+    redirect("../../dashboard.php");
     exit();
 
 
