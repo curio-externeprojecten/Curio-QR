@@ -49,7 +49,7 @@ else if ( $_POST['formType'] == 'register') {
 	}
 	#nieuwe speler in database zetten
  	
-	query("INSERT INTO users (id, username, email, password, rank)
+	query("INSERT INTO users (username, email, password)
 		VALUES (:username, :email, :password)" ,[
 			':username'         => $username,
 			':email'          => $email,
@@ -103,7 +103,7 @@ else if ($_POST['formType'] == 'logout') {
     // als iemand wilt uitloggen
     session_destroy();
     unset($_SESSION);
-    redirect('../../public/auth/login.php');
+    header('location: ../../login.php');
 }
 
 
