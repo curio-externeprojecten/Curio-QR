@@ -35,7 +35,6 @@ else if ( $_POST['formType'] == 'register') {
  	$email = $_POST ['email'];
  	$password = $_POST['password'];
  	$username = $_POST['username'];
- 	$starterrank = 0;
 
  	$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -51,11 +50,10 @@ else if ( $_POST['formType'] == 'register') {
 	#nieuwe speler in database zetten
  	
 	query("INSERT INTO users (id, username, email, password, rank)
-		VALUES (NULL, :username, :email, :password, :rank)" ,[
+		VALUES (:username, :email, :password)" ,[
 			':username'         => $username,
 			':email'          => $email,
-			':password'         => $hashedPassword,
-			'rank' => $starterrank
+			':password'         => $hashedPassword
 		]);
 
 	header('location: ../../login.php');
