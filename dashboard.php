@@ -64,6 +64,10 @@
                          <p>Hier kan je jou accountgegevens zien en aanpassen wanneer gewenst.</p>
                          <?="<a href='u_account/my_account.php?id=${user['id']}'>Naar de pagina ></a>"?>
                      </div>
+                     <form action="backend/controllers/users.php">
+                         <input type="hidden" name="formType" value="logout">
+                        <input id="submit" type="submit" name="submit" value="logout" />                     
+                    </form>
                  </div>
              </div>
          </div>
