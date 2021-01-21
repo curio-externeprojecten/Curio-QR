@@ -2,10 +2,10 @@
 require __DIR__ . './../backend/init.php';
 
 
-// if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make this userid
-//     header('Location: ../../index.php');
-//     exit();
-//     }
+if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make this userid
+    header('Location: ../../index.php');
+    exit();
+    }
 
 $id = $_GET['id'];
 $user = selectOne("SELECT * FROM users WHERE id = :id", [
