@@ -31,6 +31,10 @@ if($_POST['formtype'] == 'Create'){//create project
     $projectDesc = $_POST['desc'];
     $creator = $_SESSION['userId'];
 
+    if(strlen($projectTitle) < 1){
+        header('Location: ../../create.php');
+    }
+
     $return = query("INSERT INTO instructions (creator, title, description) VALUES(:creator, :title, :description)", 
     [':creator' => $creator, ':title' => $projectTitle, ':description' => $projectDesc]);
 
