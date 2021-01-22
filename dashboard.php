@@ -44,13 +44,13 @@
                          <img src="backend/img/qr3.gif" alt="qr-code">
                          <h4>Qr informatie pagina</h4>
                          <p>Hier leggen we de werking uit van met maken van een nieuwe qr code, en leggen we uit hoe met maken van de pagina in elkaar zit.</p>
-                         <a href="">Naar de pagina ></a>
+                         <a href="list.php">Naar de pagina ></a>
                      </div>
                      <div class="article">
                          <img src="backend/img/qr2.gif" alt="qr-code">
                          <h4>Qr pagina maken</h4>
                          <p>Hier kan je dan ook daadwerkelijk een nieuwe qr pagina aanmaken als je de informatie hebt gelezen. Of als je die niet nodig hebt.</p>
-                         <a href="">Naar de pagina ></a>
+                         <a href="create.php">Naar de pagina ></a>
                      </div>
                      <div class="article">
                          <img src="backend/img/qr5.png" alt="People buying stuff">
