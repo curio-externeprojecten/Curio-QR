@@ -44,7 +44,7 @@ if($_POST['formtype'] == 'Create'){//create project
     $url = "http://".$_SERVER['HTTP_HOST']."/instructions.php?id=";
     $table = selectone("SHOW TABLE STATUS FROM qr WHERE `name` LIKE 'instructions' ");
     $id = -1 + $table['Auto_increment'];
-    $codeContents = $url . encrypt($id);
+    $codeContents = $url . $id;
 
     ob_start();
     QRcode::png($codeContents, null, QR_ECLEVEL_L, 4);
