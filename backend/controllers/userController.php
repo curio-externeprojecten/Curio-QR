@@ -46,18 +46,40 @@ if ($_POST['formType'] == 'edit') {
 
 } else if ($_POST['formType'] == 'delete_admin') {
     $id = $_POST['id'];
+
+    // query("DELETE FROM instructions_data WHERE user_id= :id", 
+    // [':id'=> $id]);
+    query("DELETE FROM instructions_users WHERE user_id= :id", 
+    [':id'=> $id]);
+
+    query("DELETE FROM instructions WHERE creator = :id",[
+        ':id' => $id
+    ]);
+    
     query("DELETE FROM users WHERE id = :id", [
         ':id' => $id
     ]);
-    redirect("../../users_admin/edit.php");
+    redirect("../../dashboard.php");
     exit();
 
 
 } else if ($_POST['formType'] == 'delete_acc') {
+    
     $id = $_POST['id'];
+
+    // query("DELETE FROM instructions_data WHERE user_id= :id", 
+    // [':id'=> $id]);
+    // query("DELETE FROM instructions_users WHERE user_id= :id", 
+    // [':id'=> $id]);
+
+    query("DELETE FROM instructions WHERE creator = :id",[
+        ':id' => $id
+    ]);
+    
     query("DELETE FROM users WHERE id = :id", [
         ':id' => $id
     ]);
+    redirect("../../index.php");
     exit();
 }
 
