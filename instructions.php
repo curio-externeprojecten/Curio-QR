@@ -10,7 +10,7 @@ if(isset($_SESSION['userId'])){
         //username
         //rank user/admin/superadmin
         "SELECT id, username, rank FROM users WHERE id = :id",
-        [":id" => decryptUser($_SESSION['userId'])]
+        [":id" => $_SESSION['userId']]
     );
 }else{
     $user = false;
@@ -26,7 +26,9 @@ if(!$instruction){
     header("Location: index.php"); 
 }
 ?>
-
+<head>
+    <title><?= $instruction['title']?></title>
+</head>
 <div class='instructionContainer'>
     <script>
         function openqr(){

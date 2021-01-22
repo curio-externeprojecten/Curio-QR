@@ -12,12 +12,12 @@ $instructions = select(
     ORDER BY instruction_order", 
     [":id" => $id]);
 if($instructions == false){
-    exit();
+    
 }
 if(isset($_SESSION['userId'])){
     $user = selectOne(
         "SELECT id, rank FROM users WHERE id = :id",
-        [":id" => decryptUser($_SESSION['userId'])]
+        [":id" => $_SESSION['userId']]
     );
 }else{
     $user = false;
