@@ -2,7 +2,7 @@
 require __DIR__.'\header.php';
 require __DIR__.'\backend/init.php';
 
-$id = decrypt($_GET['id']);
+$id = $_GET['id'];
 
 //logged in
 if(isset($_SESSION['userId'])){
@@ -23,7 +23,7 @@ $instruction = selectOne(
      [":id" => $id]);
 
 if(!$instruction){
-    header("Location: index.php"); 
+   header("Location: index.php"); 
 }
 ?>
 <head>

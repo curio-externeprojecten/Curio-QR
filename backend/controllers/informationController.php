@@ -28,7 +28,7 @@ function InstructionUserCheck($user, $id){
 }
 if($_POST['formtype'] == 'Create'){//create project
     $projectTitle = $_POST['title'];
-    $projectDesc = $_POST['desc'];
+    $projectDesc = $_POST['description'];
     $creator = $_SESSION['userId'];
 
     if(strlen($projectTitle) < 1){
@@ -56,12 +56,12 @@ if($_POST['formtype'] == 'Create'){//create project
 
     query("INSERT INTO instructions_users (user_id, instruction_id, rank) values (:user, :id, 'superadmin')", [':user' => $creator, 'id' => $id]);
 
-    header('Location: ../../instructions.php?id='.  encrypt($id));
+    header('Location: ../../instructions.php?id='.  $id);
     exit();
 }
 if($_POST['formtype'] == 'Delete'){//remove project
     $user = $_SESSION['userId'];
-    $id = decrypt($_POST['id']);
+    $id = $_POST['id'];
 
     //set to creator or superadmin
 
@@ -89,14 +89,14 @@ if($_POST['formtype'] == 'Delete'){//remove project
 }
 if($_POST['formtype'] == ''){//edit project
     $creator = $_SESSION['userId'];
-    $id = decrypt($_POST['id']);
+    $id = $_POST['id'];
 
     //change title
     //change description
 }
 if($_POST['formtype'] == 'addInstruct'){//add instruction
     $user = $_SESSION['userId'];
-    $id = decrypt($_POST['id']);
+    $id = $_POST['id'];
     $type = $_POST['type'];
     
     InstructionUserCheck($user, $id);
@@ -148,7 +148,7 @@ if($_POST['formtype'] == 'addInstruct'){//add instruction
 }
 if($_POST['formtype'] == 'remInstruct'){//remove instruction
     $user = $_SESSION['userId'];
-    $id = decrypt($_POST['id']);
+    $id = $_POST['id'];
     $orderNumber = $_POST['ordernumber'];
 
     InstructionUserCheck($user, $id);
@@ -168,7 +168,7 @@ if($_POST['formtype'] == 'remInstruct'){//remove instruction
 }
 if($_POST['formtype'] == 'move'){//move instruction
     $user = $_SESSION['userId'];
-    $id = decrypt($_POST['id']);
+    $id = $_POST['id'];
     $orderNumber = $_POST['ordernumber'];
     $instruction = $_POST['Move'];
 
@@ -206,7 +206,7 @@ if($_POST['formtype'] == 'move'){//move instruction
 }
 if($_POST['formtype'] == 'changeuser'){
     $user = $_SESSION['userId'];
-    $id = decrypt($_POST['id']);
+    $id = $_POST['id'];
     $rank = $_POST['rank'];
     $selectedUser = $_POST['selecteduser'];
 

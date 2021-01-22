@@ -4,7 +4,7 @@ require __DIR__.'\backend/init.php';
 if(!isset($_GET['id'])){
     exit();
 }
-$id = decrypt($_GET['id']);
+$id = $_GET['id'];
 
 $instructions = select(
     "SELECT type, content, instruction_order FROM instructions_data
