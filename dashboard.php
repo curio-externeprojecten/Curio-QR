@@ -2,12 +2,14 @@
 
     require __DIR__.'./backend/init.php';
 
+    
+    
     $id = $_SESSION['userId'];
 
 
-    // if ( !isset($_SESSION['id'])) {
-    //     header("Location: login.php?msg= Log eerst in!");
-    // }
+    if ( !isset($_SESSION['id'])) {
+        header("Location: login.php?msg= Log eerst in!");
+    }
 
     $user = selectOne("SELECT * FROM users WHERE id = :id",
          [ ':id'    => $id]);
