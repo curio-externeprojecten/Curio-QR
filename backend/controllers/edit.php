@@ -11,7 +11,7 @@ if ($_POST['formType'] == 'edit') {
     $title         = $_POST['title'];
     $description   = $_POST['description'];
 
-    query("UPDATE insturctions SET
+    query("UPDATE instructions SET
                 id          = :id,
                 title    = :title,
                 'description'  = ':description' 

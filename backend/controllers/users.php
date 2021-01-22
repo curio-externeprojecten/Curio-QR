@@ -1,29 +1,6 @@
 <?php
 require __DIR__.'./../init.php';
 
-// if ($_POST['formtype'] == 'create') {
-	
-// 	$brand         = $_POST['brand'];
-// 	$model          = $_POST['type'];
-// 	$color         = $_POST['color'];
-// 	$license_plate = $_POST['license_plate'];
-// 	$categories_id  = $_POST['categorie_id'];
-
-// 	if (strlen(trim($brand)) <= 2){
-// 		redirect('../../public/index.php');
-// 	}
-
-// 	query("INSERT INTO cars (brand, model, color, license_plate, categories_id)
-// 		VALUES (:brand, :model, :color, :license_plate, :categories_id)" ,[
-// 			':brand'         => $brand,
-// 			':model'          => $model,
-// 			':color'         => $color,
-// 			':license_plate' => $license_plate,
-// 			':categories_id'  => $categories_id
-// 		]);
-
-// 	redirect('../../public/index.php');
-// }
 
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
     $msg = "Je kunt deze pagina alleen bereiken via een veilige form-invoer.";

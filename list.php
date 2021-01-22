@@ -36,7 +36,7 @@ if (isset($_SESSION['userId'])) {
                 </thead>
                 <tbody>
                     <?php
-                        $instructions = select("SELECT id, title, description FROM instructions WHERE creator = :id", [":id" => $user['id']]);
+                        $instructions = select("SELECT id, title, description FROM instructions WHERE creator = :id", [":id" => $_SESSION['userId']]);
                         foreach($instructions as $instruction){
                             echo "<tr>";
                             echo "<td> <a href='instructions.php?id=". $instruction['id'] ."'>". $instruction['title']. "</a></td>";
