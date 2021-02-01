@@ -9,7 +9,7 @@ if(isset($_SESSION['userId'])){
     $user = selectOne(
         //username
         //rank user/admin/superadmin
-        "SELECT id, username, rank FROM users WHERE id = :id",
+        "SELECT `id`, `username`, `rank` FROM users WHERE id = :id",
         [":id" => $_SESSION['userId']]
     );
 }else{
@@ -17,9 +17,9 @@ if(isset($_SESSION['userId'])){
 }
 
 $instruction = selectOne(
-    "SELECT creator, title, description, username, code FROM instructions
-    LEFT JOIN users on instructions.creator = users.id
-    WHERE instructions.id = :id",
+    "SELECT `creator`, `title`, `description`, `username`, `code` FROM instructions
+    LEFT JOIN users on `instructions`.`creator` = `users`.`id`
+    WHERE `instructions`.`id` = :id",
      [":id" => $id]);
 
 if(!$instruction){
@@ -136,5 +136,5 @@ if(!$instruction){
     </div>
 </div>
 <?php
-require __DIR__.'\footer.php';
+require __DIR__.'/./footer.php';
 ?>

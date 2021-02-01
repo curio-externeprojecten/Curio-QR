@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true) { //should m
     exit();
 }
 $id = $_GET['id'];
-$user = selectOne("SELECT * FROM users WHERE id = :id", [
+$user = selectOne("SELECT * FROM users WHERE `id` = :id", [
     ':id' => $id
 ]);
 
