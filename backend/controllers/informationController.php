@@ -12,8 +12,8 @@ if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] != true){//should make
 }
 
 function InstructionUserCheck($user, $id){
-    $userCheck = selectOne("SELECT rank FROM instructions_users where instruction_id = :id AND user_id = :userid", [":id" => $id, ":userid" => $user]);
-    $adminCheck = selectOne("SELECT rank FROM users WHERE id = :id", [':id' => $user ]);
+    $userCheck = selectOne("SELECT `rank` FROM instructions_users where `instruction_id` = :id AND user_id = :userid", [":id" => $id, ":userid" => $user]);
+    $adminCheck = selectOne("SELECT `rank` FROM users WHERE `id` = :id", [':id' => $user ]);
     $allowed = false;
     if($userCheck['rank'] == "admin" || $userCheck['rank'] == "superadmin"){
         $allowed = true;
@@ -35,7 +35,7 @@ if($_POST['formtype'] == 'Create'){//create project
         header('Location: ../../create.php');
     }
 
-    $return = query("INSERT INTO instructions (creator, title, description) VALUES(:creator, :title, :description)", 
+    $return = query("INSERT INTO instructions (`creator`, `title`, `description`) VALUES(:creator, :title, :description)", 
     [':creator' => $creator, ':title' => $projectTitle, ':description' => $projectDesc]);
 
     
@@ -52,9 +52,9 @@ if($_POST['formtype'] == 'Create'){//create project
     ob_end_clean();
 
     $image = addslashes($png);
-    query("UPDATE instructions SET code = :image WHERE id = :id", [':image' => $image, ':id' => $id]); 
+    query("UPDATE instructions SET `code` = :image WHERE `id` = :id", [':image' => $image, ':id' => $id]); 
 
-    query("INSERT INTO instructions_users (user_id, instruction_id, rank) values (:user, :id, 'superadmin')", [':user' => $creator, 'id' => $id]);
+    query("INSERT INTO instructions_users (`user_id`, `instruction_id`, `rank`) values (:user, :id, 'superadmin')", [':user' => $creator, 'id' => $id]);
 
     header('Location: ../../instructions.php?id='.  $id);
     exit();
@@ -65,8 +65,8 @@ if($_POST['formtype'] == 'Delete'){//remove project
 
     //set to creator or superadmin
 
-    $userCheck = selectOne("SELECT rank FROM instructions_users where instruction_id = :id AND user_id = :userid", [":id" => $id, ":userid" => $user]);
-    $adminCheck = selectOne("SELECT rank FROM users WHERE id = :id", [':id' => $user ]);
+    $userCheck = selectOne("SELECT `rank` FROM instructions_users where `instruction_id` = :id AND `user_id` = :userid", [":id" => $id, ":userid" => $user]);
+    $adminCheck = selectOne("SELECT `rank` FROM users WHERE `id` = :id", [':id' => $user ]);
     $allowed = false;
     if($userCheck['rank'] == "superadmin"){
         $allowed = true;
@@ -78,11 +78,11 @@ if($_POST['formtype'] == 'Delete'){//remove project
         header('Location: ../../instruction.php?id='. $_POST['id']);
         exit();
     }
-    query("DELETE FROM instructions_data WHERE instruction_id = :id", [':id' => $id]);
+    query("DELETE FROM instructions_data WHERE `instruction_id` = :id", [':id' => $id]);
 
-    query("DELETE FROM instructions_users WHERE instruction_id = :id", [':id' => $id]);
+    query("DELETE FROM instructions_users WHERE `instruction_id` = :id", [':id' => $id]);
 
-    query("DELETE FROM instructions WHERE id =:id", [':id' => $id]);
+    query("DELETE FROM instructions WHERE `id`=:id", [':id' => $id]);
 
     header('Location: ../../dashboard.php');
     exit();
@@ -101,7 +101,7 @@ if($_POST['formtype'] == 'addInstruct'){//add instruction
     
     InstructionUserCheck($user, $id);
 
-    $amount = count(select('SELECT instruction_order FROM instructions_data WHERE instruction_id = :id', [':id' => $id]));//get latest in list
+    $amount = count(select('SELECT `instruction_order` FROM instructions_data WHERE `instruction_id` = :id', [':id' => $id]));//get latest in list
 
     if($type == "text"){
         $convertedContent = $_POST['submitText'];
@@ -139,7 +139,7 @@ if($_POST['formtype'] == 'addInstruct'){//add instruction
         echo "no content error";
         exit();
     }
-    query('INSERT INTO instructions_data (instruction_id, instruction_order, type, content) 
+    query('INSERT INTO instructions_data (`instruction_id`, `instruction_order`, `type`, `content`) 
     VALUES (:instruction_id, :instruction_order, :type, :content)', 
     [':instruction_id' => $id, ':instruction_order' => $amount, ':type' => $type, ':content' => $convertedContent]);//insert 
 
@@ -153,14 +153,14 @@ if($_POST['formtype'] == 'remInstruct'){//remove instruction
 
     InstructionUserCheck($user, $id);
 
-    $selection = select("SELECT id, instruction_order from instructions_data where instruction_id = :id order by instruction_order asc",[":id" => $id]);
+    $selection = select("SELECT `id`,`instruction_order` from instructions_data where `instruction_id` = :id order by `instruction_order` asc",[":id" => $id]);
     foreach($selection as $selected){
         if($selected['instruction_order'] == $orderNumber){//remove selected
-            query("DELETE FROM instructions_data WHERE id = :id",[":id" => $selected['id']]);
+            query("DELETE FROM instructions_data WHERE `id` = :id",[":id" => $selected['id']]);
 
         }else if($selected['instruction_order'] > $orderNumber){//move others
             $move =  -1 + $selected['instruction_order'];
-            query("UPDATE instructions_data SET instruction_order = :instruction_order WHERE id = :id", [":id" => $selected['id'], ":instruction_order" => $move]);
+            query("UPDATE instructions_data SET `instruction_order` = :instruction_order WHERE `id` = :id", [":id" => $selected['id'], ":instruction_order" => $move]);
         }
     }
     header('Location: ../../instruction.php?id='. $_POST['id']);
@@ -173,7 +173,7 @@ if($_POST['formtype'] == 'move'){//move instruction
     $instruction = $_POST['Move'];
 
     InstructionUserCheck($user, $id);
-    $selection = select("SELECT id, instruction_order from instructions_data where instruction_id = :id order by instruction_order asc",[":id" => $id]);
+    $selection = select("SELECT `id`, `instruction_order` from instructions_data where `instruction_id` = :id order by `instruction_order` asc",[":id" => $id]);
     if($instruction == '▲'){//move up other down
         if($orderNumber == 0){//cant go lower
             header('Location: ../../instruction.php?id='. $_POST['id']);
@@ -182,9 +182,9 @@ if($_POST['formtype'] == 'move'){//move instruction
         $target = $orderNumber - 1;
         foreach($selection as $selected){
             if($selected['instruction_order'] == $target){
-                query("UPDATE instructions_data SET instruction_order = :instruction_order WHERE id = :id",[":id" => $selected['id'], ":instruction_order" => $orderNumber]);
+                query("UPDATE instructions_data SET `instruction_order` = :instruction_order WHERE `id` = :id",[":id" => $selected['id'], ":instruction_order" => $orderNumber]);
             }else if($selected['instruction_order'] == $orderNumber){
-                query("UPDATE instructions_data SET instruction_order = :instruction_order WHERE id = :id",[":id" => $selected['id'], ":instruction_order" => $target]);
+                query("UPDATE instructions_data SET `instruction_order` = :instruction_order WHERE `id` = :id",[":id" => $selected['id'], ":instruction_order" => $target]);
             }
         }
     }else if($instruction == '▼'){//move down other up
@@ -195,9 +195,9 @@ if($_POST['formtype'] == 'move'){//move instruction
         $target = $orderNumber + 1;
         foreach($selection as $selected){
             if($selected['instruction_order'] == $target){
-                query("UPDATE instructions_data SET instruction_order = :instruction_order WHERE id = :id",[":id" => $selected['id'], ":instruction_order" => $orderNumber]);
+                query("UPDATE instructions_data SET `instruction_order` = :instruction_order WHERE `id` = :id",[":id" => $selected['id'], ":instruction_order" => $orderNumber]);
             }else if($selected['instruction_order'] == $orderNumber){
-                query("UPDATE instructions_data SET instruction_order = :instruction_order WHERE id = :id",[":id" => $selected['id'], ":instruction_order" => $target]);
+                query("UPDATE instructions_data SET `instruction_order` = :instruction_order WHERE `id` = :id",[":id" => $selected['id'], ":instruction_order" => $target]);
             }
         }
     }
@@ -210,8 +210,8 @@ if($_POST['formtype'] == 'changeuser'){
     $rank = $_POST['rank'];
     $selectedUser = $_POST['selecteduser'];
 
-    $userCheck = selectOne("SELECT rank FROM instructions_users where instruction_id = :id AND user_id = :userid", [":id" => $id, ":userid" => $user]);
-    $adminCheck = selectOne("SELECT rank FROM users WHERE id = :id", [':id' => $user ]);
+    $userCheck = selectOne("SELECT `rank` FROM instructions_users where `instruction_id` = :id AND `user_id` = :userid", [":id" => $id, ":userid" => $user]);
+    $adminCheck = selectOne("SELECT `rank` FROM users WHERE `id` = :id", [':id' => $user ]);
     $allowed = false;
     if($userCheck['rank'] == "superadmin"){
         $allowed = true;
@@ -223,14 +223,14 @@ if($_POST['formtype'] == 'changeuser'){
         header('Location: ../../instruction.php?id='. $_POST['id']);
         exit();
     }
-    $targetUser = selectOne("SELECT id FROM users WHERE email = :email", [":email" => $selectedUser]);
-    $check = selectOne("SELECT rank, id FROM instructions_users WHERE user_id = :user and instruction_id = :id", [":user" => $targetUser['id'], ":id" => $id]);
+    $targetUser = selectOne("SELECT `id` FROM users WHERE `email` = :email", [":email" => $selectedUser]);
+    $check = selectOne("SELECT `rank`, `id` FROM `instructions_users` WHERE `user_id` = :user and `instruction_id` = :id", [":user" => $targetUser['id'], ":id" => $id]);
     if($check == false){
         if($targetUser == false){
             header('Location: ../../instructions.php?id='. $_POST['id']);
             exit();
         }
-        query("INSERT INTO instructions_users (user_id, instruction_id, rank) values (:user, :id, :rank)", [":user" => $targetUser['id'], ":id" => $id, ":rank" => $rank]);
+        query("INSERT INTO instructions_users (`user_id`, `instruction_id`, `rank`) values (:user, :id, :rank)", [":user" => $targetUser['id'], ":id" => $id, ":rank" => $rank]);
         header('Location: ../../instructions.php?id='. $_POST['id']);
         exit();
     }else if($check != false){
@@ -238,7 +238,7 @@ if($_POST['formtype'] == 'changeuser'){
             header('Location: ../../instructions.php?id='. $_POST['id']);
             exit();
         }else{
-            $a = query("UPDATE instructions_users set rank = :rank WHERE id = :id ", [":id" => $check['id'], ":rank" => $rank]);
+            $a = query("UPDATE instructions_users set `rank` = :rank WHERE `id` = :id ", [":id" => $check['id'], ":rank" => $rank]);
             header('Location: ../../instructions.php?id='. $_POST['id']);
             exit();
         }
