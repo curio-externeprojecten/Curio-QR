@@ -5,7 +5,8 @@ if (!file_exists(__DIR__ .'/./credentials.php')) {
 
 // copy credentials.example.php to credentials.php
 require __DIR__ . '/./credentials.php';
-function getDB($credentials)  {
+function getDB()  {
+  global $credentials;
     $dbHost = $credentials['dbHost'];
     $dbName = $credentials['dbName'];
     $dbUser = $credentials['dbUser'];
