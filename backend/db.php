@@ -1,10 +1,10 @@
 <?php 
-
-function getDB() {
-    $dbHost = 'localhost';
-    $dbName = 'qr';
-    $dbUser = 'root';
-    $dbPass = '';
+require __DIR__ . '/./credentials.php';
+function getDB($credentials)  {
+    $dbHost = $credentials['dbHost'];
+    $dbName = $credentials['dbName'];
+    $dbUser = $credentials['dbUser'];
+    $dbPass = $credentials['dbPass'];
 
     $db = new PDO( "mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass );
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
