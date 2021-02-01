@@ -6,7 +6,7 @@ if (isset($_SESSION['userId'])) {
     $user = selectOne(
         //username
         //rank user/admin/superadmin
-        "SELECT id, username, rank FROM users WHERE id = :id",
+        "SELECT `id`, `username`, `rank` FROM users WHERE `id` = :id",
         [":id" => $_SESSION['userId']]
     );
 } else {
