@@ -1,6 +1,6 @@
 <?php
-require __DIR__.'\header.php';
-require __DIR__.'\backend/init.php';
+require __DIR__.'/./header.php';
+require __DIR__.'/./backend/init.php';
 
 if(isset($_SESSION['userId'])){
     $user = selectOne(

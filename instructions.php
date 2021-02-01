@@ -1,6 +1,6 @@
 <?php
-require __DIR__.'\header.php';
-require __DIR__.'\backend/init.php';
+require __DIR__.'/./header.php';
+require __DIR__.'/./backend/init.php';
 
 $id = $_GET['id'];
 

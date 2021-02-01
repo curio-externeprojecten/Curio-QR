@@ -1,6 +1,6 @@
 <?php
 
-    require __DIR__.'./backend/init.php';
+    require __DIR__.'/./backend/init.php';
 
     if ( !isset($_SESSION['userId'])) {
         header("Location: login.php?msg= Log eerst in!");

@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'\backend/init.php';
+require __DIR__.'/./backend/init.php';
 
 if(!isset($_GET['id'])){
     exit();
